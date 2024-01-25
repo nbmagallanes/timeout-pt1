@@ -17,6 +17,25 @@ you will need to test your new solution manually using node.
 
 Example:
 
+***********************************************************************/
+
+function batchTimeouts(callbacks, delays) {
+  let newArr = [];
+
+  for (let i = 0; i < callbacks.length; i++) {
+    // for (let j = 0; j < delays.length; j++) {
+      // if (i === j) newArr.push(setTimeout(callbacks[i], delays[j]))
+    // }
+
+    const callback = callbacks[i];
+    const delay = delays[i];
+
+    newArr.push(setTimeout(callback, delay));
+  }
+
+  return newArr;
+}
+
 const sayHello = () => console.log('hi');
 const sayGoodbye = () => console.log('bye');
 const shout = () => console.log('WHAT?');
@@ -30,11 +49,6 @@ const timeoutObjs = batchTimeouts(tasks, delays);
 //  'WHAT?' after 900 ms
 
 console.log(timeoutObjs); // [ Timeout {...},  Timeout {...}, Timeout {...} ]
-***********************************************************************/
-
-function batchTimeouts(callbacks, delays) {
-  // Your code here 
-}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
